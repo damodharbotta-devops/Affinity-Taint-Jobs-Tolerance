@@ -1,0 +1,16 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: testjob2
+spec:
+  template:
+    metadata:
+      name: mytemplate
+    spec:
+      containers:
+        - name: cont1
+          image: nginx
+          command: ["/bin/bash", "-c", "sudo apt update -y; sleep 20"]  
+
+      restartPolicy: Never    

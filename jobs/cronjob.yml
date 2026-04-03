@@ -1,0 +1,17 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mycron-job
+
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: cont1
+              image: httpd
+              command: ["/bin/bash", "-c", "sudo apt update -y; sudo apt install git -y; sleep 10"]
+          restartPolicy: Never    
