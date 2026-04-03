@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flm
+
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: swiggy
+
+  template:
+    metadata:
+      name: mytemplate
+      labels:
+        app: swiggy
+    spec:
+      containers:
+        - name: cont1
+          image: nginx
+          ports:
+            - containerPort: 80  
+      
